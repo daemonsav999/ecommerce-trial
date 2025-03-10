@@ -1,0 +1,13 @@
+[versions]
+kotlin = "1.8.0"
+androidx-core = "1.9.0"
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+
+[bundles]
+android-bundle = ["kotlin-stdlib", "androidx-core-ktx"]
+
+[plugins]
+android-application = { id = "com.android.application", version = "7.4.0" }
