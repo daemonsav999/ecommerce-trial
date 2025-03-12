@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Product, GroupBuy, User, Team, Reward } from '@/types';
+import type { Product, GroupBuy, User, Team, Reward, LiveStream, PaymentResult, PaymentInput, AnalyticsEvent } from '@/types';
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ 
@@ -12,7 +12,7 @@ export const api = createApi({
       return headers;
     }
   }),
-  tagTypes: ['Products', 'GroupBuys', 'Cart', 'Teams', 'Rewards', 'User'],
+  tagTypes: ['Products', 'GroupBuys', 'Cart', 'Teams', 'Rewards', 'User', 'LiveStreams'],
   endpoints: (builder) => ({
     // Existing endpoints
     getProducts: builder.query<Product[], void>({
@@ -97,6 +97,45 @@ export const api = createApi({
         body
       })
     }),
+    
+    // Live Shopping endpoints
+    getLiveStreams: builder.query<LiveStream[], void>({
+      query: () => 'live-streams',
+      providesTags: ['LiveStreams']
+    }),
+    startLiveStream: builder.mutation<LiveStream, Partial<LiveStream>>({
+      query: (body) => ({
+        url: 'live-streams',
+        method: 'POST',
+        body
+      }),
+      invalidatesTags: ['LiveStreams']
+    }),
+    endLiveStream: builder.mutation<void, string>({
+      query: (id) => ({
+        url: `live-streams/${id}`,
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['LiveStreams']
+    }),
+
+    // Payment endpoints
+    processPayment: builder.mutation<PaymentResult, PaymentInput>({
+      query: (body) => ({
+        url: 'payments/process',
+        method: 'POST',
+        body
+      })
+    }),
+    
+    // Analytics endpoints
+    trackEvent: builder.mutation<void, AnalyticsEvent>({
+      query: (body) => ({
+        url: 'analytics/events',
+        method: 'POST',
+        body
+      })
+    })
   })
 });
 
@@ -116,4 +155,9 @@ export const {
   useGetTeamRecommendationsQuery,
   useSearchNearbyTeamsQuery,
   useTrackSocialShareMutation,
+  useGetLiveStreamsQuery,
+  useStartLiveStreamMutation,
+  useEndLiveStreamMutation,
+  useProcessPaymentMutation,
+  useTrackEventMutation,
 } = api;
