@@ -1,0 +1,61 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?"
+  },
+  "product": {
+    "price": "Price",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "startGroupBuy": "Start Group Buy",
+    "description": "Description",
+    "specifications": "Specifications",
+    "reviews": "Reviews",
+    "outOfStock": "Out of Stock"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "orders": {
+    "myOrders": "My Orders",
+    "orderDetails": "Order Details",
+    "orderStatus": "Order Status",
+    "trackOrder": "Track Order",
+    "cancelOrder": "Cancel Order"
+  },
+  "groupBuy": {
+    "create": "Create Group",
+    "join": "Join Group",
+    "members": "Members",
+    "timeLeft": "Time Left",
+    "minMembers": "Minimum Members Required",
+    "groupPrice": "Group Price"
+  },
+  "profile": {
+    "myProfile": "My Profile",
+    "settings": "Settings",
+    "addresses": "My Addresses",
+    "wishlist": "Wishlist",
+    "help": "Help & Support"
+  }
+}
